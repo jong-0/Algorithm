@@ -9,5 +9,4 @@ for i in range(num):
 
 li.sort()
 
-for i in li:
-    print(i)
+print(*li, sep='\n')
