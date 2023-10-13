@@ -5,23 +5,25 @@ num = int(input())
 
 li = []
 ans = []
-ii = 1
-cnt = 0
+i = 1
+tag = 0
 
 for _ in range(num):
     n = int(input())
 
-    while ii <= n:
-        li.append(ii)
+    while i <= n:
+        li.append(i)
         ans.append('+')
-        ii += 1
+        i += 1
 
     if li[-1] == n:
         li.pop()
         ans.append('-')
     else:
-        print('NO')
-        cnt = 1
+        tag = 1
         break
-if cnt == 0:
+
+if tag == 0:
     print(*ans, sep='\n', end='')
+else:
+    print('NO')
