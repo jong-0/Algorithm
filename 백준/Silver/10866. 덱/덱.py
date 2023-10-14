@@ -1,41 +1,41 @@
 import sys
 input = sys.stdin.readline
-
 from collections import deque
-dq = deque()
 
+q = deque()
 n = int(input())
 
 for _ in range(n):
-    s = list(input().split())
-    if 'push_back' == s[0]:
-        dq.append(s[-1])
-    elif 'push_front' in s:
-        dq.appendleft(s[-1])
-    elif s[0] == 'front':
-        if len(dq) == 0:
+    a = input().split()
+
+    if a[0] == 'back':
+        if q:
+            print(q[-1])
+        else:
             print(-1)
+    elif a[0] == 'front':
+        if q:
+            print(q[0])
         else:
-            print(dq[0])
-    elif s[0] == 'back':
-        if len(dq) == 0:
             print(-1)
-        else:
-            print(dq[-1])
-    elif s[0] == 'empty':
-        if len(dq) == 0:
-            print(1)
-        else:
+    elif a[0] == 'empty':
+        if q:
             print(0)
-    elif s[0] == 'pop_front':
-        if len(dq) == 0:
-            print(-1)
         else:
-            print(dq.popleft())
-    elif s[0] == 'pop_back':
-        if len(dq) == 0:
-            print(-1)
+            print(1)
+    elif a[0] == 'size':
+        print(len(q))
+    elif a[0] == 'pop_back':
+        if q:
+            print(q.pop())
         else:
-            print(dq.pop())
-    elif s[0] == 'size':
-        print(len(dq))
+            print(-1)
+    elif a[0] == 'pop_front':
+        if q:
+            print(q.popleft())
+        else:
+            print(-1)
+    elif a[0] == 'push_back':
+        q.append(a[1])
+    else:
+        q.appendleft(a[1])
