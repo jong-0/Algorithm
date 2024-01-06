@@ -1,14 +1,13 @@
-a = int(input())
-b = int(input())
-c = int(input())
+li=[0]*10
 
-s = str(a*b*c)
+n1 = int(input())
+n2 = int(input())
+n3 = int(input())
 
-n = '0123456789'
-li = [0] * 10
+s = str(n1*n2*n3)
 
 for i in s:
-    if i in n:
-        li[int(i)] += 1
+    li[int(i)] += 1
 
-print(*li, sep = '\n')
+for i in li:
+    print(i)
