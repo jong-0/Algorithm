@@ -1,6 +1,6 @@
-n, m = map(int, input().split())
+n, c = map(int, input().split())
 li = list(map(int, input().split()))
 
 for i in li:
-    if i < m:
+    if i < c:
         print(i, end=' ')
