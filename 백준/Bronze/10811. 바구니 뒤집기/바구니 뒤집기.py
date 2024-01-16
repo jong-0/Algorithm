@@ -1,19 +1,8 @@
-import sys
-input = sys.stdin.readline
-
 n, m = map(int, input().split())
+li = [i for i in range(1,n+1)]
 
-li = [0] * n
+for _ in range(m):
+    a,b = map(int, input().split())
+    li[a-1:b] = li[a-1:b][::-1]
 
-for i in range(n):
-    li[i] = i+1
-
-for i in range(m):
-    a, b = map(int, input().split())
-    if a == 1:
-        li[a-1:b] = li[b-1::-1]
-    else:
-        li[a-1:b] = li[b-1:a-2:-1]
-
-for i in li:
-    print(i, end = ' ')
+print(*li)
