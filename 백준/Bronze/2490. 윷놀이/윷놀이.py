@@ -1,13 +1,12 @@
-for i in range(3):
+for _ in range(3):
     li = list(map(int, input().split()))
-    n = sum(li)
-    if n == 4:
-        print('E')
-    elif n == 3:
-        print('A')
-    elif n == 2:
-        print('B')
-    elif n == 1:
+    if li.count(1) == 1:
         print('C')
+    elif li.count(1) == 2:
+        print('B')
+    elif li.count(1) == 3:
+        print('A')
+    elif li.count(1) == 4:
+        print('E')
     else:
         print('D')
