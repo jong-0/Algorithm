@@ -1,15 +1,17 @@
-s = 0
-num = 100
+li = []
+sum = 0
 
 for _ in range(7):
     n = int(input())
-    if n%2 != 0:
-        s += n
-        if n < num:
-            num = n
+    if n%2==1:
+        sum += n
+        li.append(n)
+    else:
+        continue
 
-if s == 0:
+if len(li) == 0:
     print(-1)
 else:
-    print(s)
-    print(num)
+    li.sort()
+    print(sum)
+    print(li[0])
