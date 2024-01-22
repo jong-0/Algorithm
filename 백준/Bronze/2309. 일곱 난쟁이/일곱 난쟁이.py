@@ -1,25 +1,24 @@
-import sys
-input = sys.stdin.readline
+li = [0] * 9
 
-li = []
+for i in range(9):
+    li[i] = int(input())
 
-for _ in range(9):
-    n = int(input())
-    li.append(n)
+cnt = sum(li)
+cnt = cnt - 100
+
+i, j = 0, 1
+while True:
+    if li[i] + li[j] == cnt:
+        li.remove(li[j])
+        li.remove(li[i])
+        break
+    else:
+        if j == len(li) - 1:
+            i += 1
+            j = i + 1
+        else:
+            j += 1
 
 li.sort()
-s = sum(li) - 100
-
-i = 0
-j = len(li) - 1
-
-while li[i] + li[j] != s:
-    if li[i] + li[j] > s:
-        j -= 1
-    else:
-        i += 1
-
-del li[j]
-del li[i]
-
-print(*li, sep='\n', end='')
+for i in li:
+    print(i)
