@@ -1,19 +1,14 @@
-import sys
-input = sys.stdin.readline
+n = int(input())
+li = list(map(int,input().split()))
+y, m = 0, 0
 
-num = int(input())
-li = list(map(int, input().split()))
+for i in range(len(li)):
+    y += (li[i]//30 + 1) * 10
+    m += (li[i]//60 + 1) * 15
 
-Y = 0
-M = 0
-
-for i in li:
-    Y += (i//30 + 1) * 10
-    M += (i//60 + 1) * 15
-
-if Y == M:
-    print('Y M', Y)
-elif Y > M:
-    print('M', M)
+if y == m:
+    print('Y', 'M', y)
+elif y < m:
+    print('Y', y)
 else:
-    print('Y', Y)
+    print('M', m)
