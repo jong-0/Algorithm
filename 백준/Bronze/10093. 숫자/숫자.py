@@ -1,15 +1,7 @@
-a,b = map(int,input().split())
+n, m = map(int, input().split())
+a = min(n, m)
+b = max(n, m)
+li = [i for i in range(a+1,b)]
 
-A = min(a,b)
-B = max(a,b)
-li=[]
-
-if B<=A:
-    print(0)
-else:
-    n = B-A-1
-    for i in range(A+1,B):
-        li.append(i)
-    
-    print(n)
-    print(*li)
+print(len(li))
+print(*li)
