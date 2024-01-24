@@ -1,13 +1,11 @@
-import sys
-input = sys.stdin.readline
-
 n = int(input())
-for _ in range(n):
-    aa, bb = input().split()
-    aa1 = sorted(aa)
-    bb1 = sorted(bb)
 
-    if aa1 == bb1:
-        print("Possible")
+for _ in range(n):
+    a,b = input().split()
+    a, b = list(a), list(b)
+    a.sort()
+    b.sort()
+    if a == b:
+        print('Possible')
     else:
-        print("Impossible")
+        print('Impossible')
