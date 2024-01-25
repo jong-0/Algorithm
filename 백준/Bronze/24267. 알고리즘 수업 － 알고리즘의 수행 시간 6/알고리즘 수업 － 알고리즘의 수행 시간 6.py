@@ -1,7 +1,3 @@
 n = int(input())
-sum=0
-for i in range(1,n-1):
-  sum+=int((i**2+i)/2)
-  
-print(sum)
-print('3')
+print(int((n*(n-1)*(n-2))/6))
+print(3)
