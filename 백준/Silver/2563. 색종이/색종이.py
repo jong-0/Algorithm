@@ -1,15 +1,13 @@
-num = int(input())
-li = [[0 for j in range(100)] for _ in range(100)]
-cnt = 0
+li = [[0]*101 for i in range(101)]
 
-for _ in range(num):
+n = int(input())
+for _ in range(n):
     x, y = map(int, input().split())
-    for i in range(x,x+10):
+    for i in range(x, x+10):
         for j in range(y, y+10):
-            if li[i][j] == 0:
-                li[i][j] = 1
-                cnt += 1
-            else:
-                continue
+            li[i][j] = 1
 
-print(cnt)
+sum = 0
+for i in range(101):
+    sum += li[i].count(1)
+print(sum)
