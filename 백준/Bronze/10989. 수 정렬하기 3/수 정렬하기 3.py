@@ -1,14 +1,13 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
 li = [0] * 10001
+num = int(input())
+for _ in range(num):
+    n = int(input())
+    li[n] += 1
 
-for i in range(n):
-  num = int(input())
-  li[num] += 1
-
-for i in range(len(li)):
-  if li[i] != 0:
-    for j in range(li[i]):
-      print(i)
+for i in range(1,len(li)):
+    if li[i] != 0:
+        for j in range(li[i]):
+            print(i)
