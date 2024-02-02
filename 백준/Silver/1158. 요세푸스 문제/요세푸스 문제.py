@@ -1,21 +1,22 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
 
-from collections import deque
-
-q = deque()
-
-n, k =map(int, input().split())
-cnt = 0
-li = []
+dq = deque()
+n, m = map(int, input().split())
 
 for i in range(1,n+1):
-    q.append(i)
+    dq.append(i)
 
-while len(q) != 0:
-    q.rotate(-k+1)
-    li.append(q.popleft())
+ans = []
+cnt = 0
+while len(dq) != 0:
+    cnt += 1
+    if cnt%m == 0:
+        ans.append(dq.popleft())
+    else:
+        dq.append(dq.popleft())
 
 print('<', end='')
-print(*li, sep=', ', end='')
-print('>', end='')
+print(*ans, sep=', ', end='')
+print('>')
