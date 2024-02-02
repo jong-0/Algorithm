@@ -1,15 +1,15 @@
 from collections import deque
+import sys
+input = sys.stdin.readline
 
+dq = deque()
 n = int(input())
-li = [0] * n
 
 for i in range(n):
-    li[i] = i + 1
+    dq.append(n-i)
 
-q = deque(li)
+while len(dq) != 1:
+    dq.pop()
+    dq.appendleft(dq.pop())
 
-while len(q) > 1:
-    q.popleft()
-    q.rotate(-1)
-
-print(q[0])
+print(dq[0])
