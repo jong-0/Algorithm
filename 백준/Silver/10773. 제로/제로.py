@@ -1,16 +1,15 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
 
+dq = deque()
+
 num = int(input())
-n = 0
-li = []
-
 for _ in range(num):
-    cc = int(input())
-
-    if cc == 0:
-        li.pop()
+    n = int(input())
+    if n == 0:
+        dq.pop()
     else:
-        li.append(cc)
+        dq.append(n)
 
-print(sum(li))
+print(sum(dq))
