@@ -1,47 +1,39 @@
 from collections import deque
 import sys
+input = sys.stdin.readline
 
-n = int(sys.stdin.readline())
-q = deque()
-
-for i in range(n):
-    a = list(map(int, sys.stdin.readline().rstrip().split()))
-
-    if a[0] == 8:
-        if q:
-            print(q[-1])
+dq = deque()
+n = int(input())
+for _ in range(n):
+    s = input().split()
+    if s[0] == '1':
+        dq.appendleft(int(s[-1]))
+    elif s[0] == '2':
+        dq.append(int(s[-1]))
+    elif s[0] == '3':
+        if len(dq) > 0:
+            print(dq.popleft())
         else:
             print(-1)
-
-    elif a[0] == 7:
-        if q:
-            print(q[0])
+    elif s[0] == '4':
+        if len(dq) > 0:
+            print(dq.pop())
         else:
             print(-1)
-
-    elif a[0] == 6:
-        if q:
+    elif s[0] == '5':
+        print(len(dq))
+    elif s[0] == '6':
+        if len(dq) > 0:
             print(0)
         else:
             print(1)
-
-    elif a[0] == 5:
-        print(len(q))
-
-    elif a[0] == 4:
-        if q:
-            print(q.pop())
+    elif s[0] == '7':
+        if len(dq) > 0:
+            print(dq[0])
         else:
             print(-1)
-
-    elif a[0] == 3:
-        if q:
-            print(q.popleft())
-        else:
-            print(-1)
-
-    elif a[0] == 2:
-        q.append(a[1])
-
     else:
-        q.appendleft(a[1])
+        if len(dq) > 0:
+            print(dq[-1])
+        else:
+            print(-1)
