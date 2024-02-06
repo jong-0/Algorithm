@@ -1,22 +1,28 @@
 from collections import deque
+import sys
+input = sys.stdin.readline
 
 n, k, m = map(int, input().split())
-li = [0] * n
-tag = 1
+dq = deque(i for i in range(1,n+1))
+
 cnt = 0
-
-for i in range(n):
-    li[i] = i + 1
-q = deque(li)
-flag = (-k + 1)
-
-for i in range(n):
-    if cnt//m > 0 and cnt%m == 0:
-        flag = flag * (-1)
-        tag = tag * (-1)
-    q.rotate(flag)
-    if tag == 1:
-        print(q.popleft())
-    else:
-        print(q.pop())
+chk = 0
+tag = 1
+while dq:
     cnt += 1
+    if chk > 0 and chk%m == 0:
+        tag *= (-1)
+        chk = 0
+
+    if tag == 1:
+        if cnt % k == 0:
+            print(dq.popleft())
+            chk += 1
+        else:
+            dq.append(dq.popleft())
+    else:
+        if cnt % k == 0:
+            print(dq.pop())
+            chk += 1
+        else:
+            dq.appendleft(dq.pop())
