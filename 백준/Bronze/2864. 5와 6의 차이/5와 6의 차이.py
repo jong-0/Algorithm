@@ -1,15 +1,19 @@
-import sys
-input = sys.stdin.readline
+a, b = input().split()
 
-a,b = input().split()
-
-aa = a.replace('6', '5')
-bb = b.replace('6', '5')
-
-aaa = a.replace('5', '6')
-bbb = b.replace('5', '6')
-
-min = int(aa) + int(bb)
-max = int(aaa) + int(bbb)
-
-print(min, max)
+if '5' in a:
+    max_a = a.replace('5', '6')
+else:
+    max_a = a
+if '6' in a:
+    min_a = a.replace('6', '5')
+else:
+    min_a = a
+if '5' in b:
+    max_b = b.replace('5', '6')
+else:
+    max_b = b
+if '6' in b:
+    min_b = b.replace('6', '5')
+else:
+    min_b = b
+print(int(min_a)+int(min_b), int(max_a)+int(max_b))
