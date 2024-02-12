@@ -3,12 +3,11 @@ input = sys.stdin.readline
 
 n, k = map(int, input().split())
 li = list(map(int, input().split()))
-num = len(li)
 cnt = 0
 
-for i in range(num-1):
+for i in range(n-1):
     tag = 1
-    for j in range(0, num-i-1):
+    for j in range(0, n-i-1):
         if li[j] > li[j+1]:
             cnt += 1
             if cnt == k:
