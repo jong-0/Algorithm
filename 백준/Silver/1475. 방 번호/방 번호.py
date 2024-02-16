@@ -1,16 +1,12 @@
-li = [0] * 9
+li = [0] * 10
+s = input()
+for i in s:
+    li[int(i)] += 1
 
-r = input()
-
-for i in r:
-    if i == '9':
-        li[int(6)] += 1
-    else:
-        li[int(i)] += 1
-
+li[6] += li[9]
 if li[6]%2 == 0:
-    li[6] = li[6]/2
+    li[6] = li[6]//2
 else:
-    li[6] = (li[6]+1)/2
+    li[6] = (li[6]+1) // 2
 
-print(int(max(li)))
+print(max(li[:9]))
