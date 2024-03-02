@@ -1,11 +1,7 @@
-import sys
-input = sys.stdin.readline
-
 n = int(input())
-li = list(map(int,input().split()))
-li.sort()
+li = list(map(int, input().split()))
 
-if len(li) == 1:
+if n == 1:
     print(li[0]**2)
 else:
-    print(li[0]*li[-1])
+    print(min(li)*max(li))
