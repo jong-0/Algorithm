@@ -1,17 +1,16 @@
-check = input()
 s = input()
+t = input()
 
 while True:
-  if s[-1] == 'A':
-    s = s[:len(s) - 1]
-  elif s[-1] == 'B':
-    s = s[:len(s) - 1]
-    s = s[::-1]
-  
-  if s == check:
-    print(1)
-    break
-  
-  if len(s)==0:
-    print(0)
-    break
+    if s == t:
+        print(1)
+        break
+    else:
+        if t[-1] == 'A':
+            t = t[:-1]
+        else:
+            t = t[:-1][::-1]
+
+    if len(s)>len(t):
+        print(0)
+        break
