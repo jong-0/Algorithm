@@ -1,13 +1,17 @@
-li = [0] * 8
-for i in range(8):
-    li[i] = int(input())
+li = []
+ans = []
+cnt = 0
+for i in range(1, 9):
+    n = int(input())
+    li.append([n, i])
 
-chk = sorted(li)
-ans = chk[3:]
-ll = []
-print(sum(ans))
-for i in ans:
-    ll.append(li.index(i)+1)
+li.sort(reverse = True)
 
-ll.sort()
-print(*ll)
+for i in range(5):
+    ans.append(li[i][1])
+    cnt += li[i][0]
+
+ans.sort()
+
+print(cnt)
+print(*ans)
