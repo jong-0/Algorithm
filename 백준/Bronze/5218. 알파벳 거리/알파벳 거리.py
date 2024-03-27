@@ -1,13 +1,12 @@
+abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
 n = int(input())
-
-abc = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
 for _ in range(n):
     a, b = input().split()
-    li = []
+    print('Distances:', end = ' ')
     for i in range(len(a)):
-        ans = abc.index(b[i]) - abc.index(a[i])
-        if ans < 0:
-            ans += 26
-        li.append(ans)
-    print('Distances:', *li)
+        dist = abc.index(b[i]) - abc.index(a[i])
+        if dist < 0:
+            dist += 26
+        print(dist, end = ' ')
+    print()
