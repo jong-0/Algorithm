@@ -1,18 +1,15 @@
-import sys
-input= sys.stdin.readline
+n = int(input())
+li = [0] * n
 
-num = int(input())
-li = [0] * num
-
-for i in range(num):
+for i in range(n):
     li[i] = input()
 
-inc = sorted(li)
-dec = sorted(li, reverse=True)
+sor = sorted(li)
+rev = sorted(li, reverse=True)
 
-if li == inc:
+if li == sor:
     print('INCREASING')
-elif li == dec:
+elif li == rev:
     print('DECREASING')
 else:
     print('NEITHER')
