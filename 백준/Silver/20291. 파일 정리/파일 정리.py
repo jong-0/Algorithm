@@ -7,6 +7,7 @@ for _ in range(n):
     else:
         dict[b] = 1
 
-di = sorted(dict)
-for i in di:
-    print(i, dict[i])
+dict = sorted(dict.items())
+
+for i, j in dict:
+    print(i, j)
