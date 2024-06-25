@@ -1,12 +1,10 @@
 import sys
 input = sys.stdin.readline
 
-num = int(input())
-li = []
-
-for i in range(num):
-    li.append(int(input()))
+n = int(input())
+li = [0] * n
+for i in range(n):
+    li[i] = int(input().rstrip())
 
 li.sort(reverse=True)
-
-print(*li, sep='\n')
+print(*li, sep="\n")
