@@ -2,32 +2,31 @@ import java.util.*;
 
 class Solution {
     public int solution(String s) {
-        String ss = s + s;
+        String ss = s+s;
         int ans = 0;
         
-        for(int i = 0; i < s.length(); i++) {
-            if(isValid(ss.substring(i,s.length()+i))) ans++;
+        for (int i = 0; i < s.length(); i++) {
+            if (isValid(ss.substring(i, s.length()+i))) ans++;
         }
         return ans;
     }
     
     private boolean isValid(String s) {
-        Deque<Character> dq = new ArrayDeque<>();
+        Deque<Character> stack = new ArrayDeque<>();
         
-        for (char current : s.toCharArray()) {
-            if (current == '(' || current == '{' || current == '[') {
-                dq.push(current);
+        for (char cur : s.toCharArray()) {
+            if (cur == '(' || cur == '{' || cur == '[') {
+                stack.push(cur);
             } else {
-                if (dq.isEmpty()) return false;
+                if (stack.isEmpty()) return false;
                 
-                char target = dq.pop();
-                if ((target == '(' && current != ')') ||
-                    (target == '[' && current != ']') ||
-                    (target == '{' && current != '}')) {
+                char target = stack.pop();
+                if ((target == '(' && cur != ')') ||
+                   (target == '{' && cur != '}') ||
+                   (target == '[' && cur != ']'))
                     return false;
-                }
             }
         }
-        return dq.isEmpty();
+        return stack.isEmpty();
     }
 }
